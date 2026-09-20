@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f7f4ef;
+  --cream-deep: #efe8dc;
+  --paper: #fbf9f6;
+  --ink: #141414;
+  --muted: #6b6560;
+  --gold: #c4a46b;
+  --gold-deep: #a8894a;
+  --line: #e6e0d6;
+  --footer: #141414;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-line: var(--line);
+  --color-footer: var(--footer);
+  --font-sans: var(--font-outfit);
+  --font-serif: var(--font-fraunces);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-outfit), sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 35%, white);
+  color: var(--ink);
+}
+
+.font-serif {
+  font-family: var(--font-fraunces), serif;
+}
+
+.headline {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.eyebrow {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.gold-rule {
+  height: 1px;
+  background: color-mix(in srgb, var(--gold) 55%, transparent);
+}
