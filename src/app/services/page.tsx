@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Building2,
-  Droplets,
-  House,
-  Plug,
-  Wind,
-  Wrench,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import { Container, Section } from "@/components/ui/Container";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { FAQ } from "@/components/shared/FAQ";
 import { PageHero } from "@/components/shared/PageHero";
-import { faqs, included, inspectSystems, services } from "@/lib/content";
+import { faqs, included, inspectHighlights, services } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -23,8 +15,6 @@ export const metadata: Metadata = {
   description:
     "Buyer inspections, new construction phase inspections, warranty inspections, foundation readings, mold, pre-listing, and more across Houston.",
 };
-
-const systemIcons = [House, Wind, Plug, Droplets, Wrench, Building2];
 
 export default function ServicesPage() {
   return (
@@ -39,8 +29,9 @@ export default function ServicesPage() {
           </>
         }
         body="Trusted home inspections for buyers, sellers, and homeowners across the Houston area. Detailed reports delivered within 24 hours."
-        image="/images/homes/modern-white.jpg"
+        image="/images/homes/services-hero.webp"
         imageAlt="Modern white Houston home"
+        imagePosition="78% 55%"
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button href={site.bookingUrl} external arrow>
@@ -48,9 +39,18 @@ export default function ServicesPage() {
           </Button>
         </div>
         <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
-          <span>Reports within 24 hours</span>
-          <span>Proudly serving the Houston area</span>
-          <span>Thorough. Independent.</span>
+          <span className="inline-flex items-center gap-2">
+            <Icon name="report" className="h-4 w-4" />
+            Reports within 24 hours
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <Icon name="location" className="h-4 w-4" />
+            Proudly serving the Houston area
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <Icon name="shield" className="h-4 w-4" />
+            Experienced. Thorough. Independent.
+          </span>
         </div>
       </PageHero>
 
@@ -70,83 +70,89 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-x-10 gap-y-12 md:grid-cols-2">
-            {services.map((service) => (
-              <article key={service.slug} className="group">
-                <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-sm">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="flex items-start gap-3">
-                  <House className="mt-1 h-4 w-4 shrink-0 text-gold" />
-                  <div>
-                    <h3 className="text-xl font-medium tracking-tight">{service.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-muted">{service.body}</p>
-                    <Link href="/contact" className="mt-3 inline-flex items-center gap-1 text-sm text-ink">
-                      Learn more <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+          <div className="mt-14 space-y-16">
+            {services.map((service, index) => {
+              const imageRight = index % 2 === 1;
+              return (
+                <article
+                  key={service.slug}
+                  className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
+                >
+                  <div className={`relative min-h-[240px] overflow-hidden bg-cream-deep ${imageRight ? "lg:order-2" : ""}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="h-full w-full min-h-[240px] object-cover"
+                    />
                   </div>
-                </div>
-              </article>
-            ))}
+                  <div className={imageRight ? "lg:order-1" : ""}>
+                    <div className="flex items-start gap-3">
+                      <Icon name="home" className="mt-1 h-5 w-5 shrink-0" />
+                      <div>
+                        <h3 className="text-2xl font-medium tracking-tight">{service.title}</h3>
+                        <p className="mt-3 text-sm leading-7 text-muted">{service.body}</p>
+                        <Link href="/contact" className="mt-4 inline-flex items-center gap-1 text-sm text-ink">
+                          Learn more <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </Container>
       </Section>
 
       <Section className="bg-paper">
-        <Container className="grid gap-10 lg:grid-cols-2">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div>
-            <p className="eyebrow">What we inspect</p>
-            <h2 className="headline mt-3 text-4xl">A detailed look at the systems and components we evaluate.</h2>
-            <Button href="/resources" variant="ghost" arrow className="mt-6 px-0">
-              View full inspection checklist
-            </Button>
+            <h2 className="headline text-4xl sm:text-5xl">What we inspect</h2>
+            <p className="mt-4 max-w-sm text-sm leading-7 text-muted">
+              A detailed look at the systems and components we evaluate during a standard home inspection.
+            </p>
+            <Link href="/resources" className="mt-6 inline-flex items-center gap-2 text-sm text-ink">
+              View full inspection checklist <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
-          <ul className="space-y-4">
-            {inspectSystems.map((system, index) => {
-              const Icon = systemIcons[index];
-              return (
-                <li key={system.title} className="flex items-start gap-3 border-b border-line pb-4">
-                  <Icon className="mt-0.5 h-4 w-4 text-gold" />
-                  <div>
-                    <p className="font-medium">{system.title}</p>
-                    <p className="mt-1 text-sm leading-6 text-muted">{system.body}</p>
-                  </div>
-                </li>
-              );
-            })}
+          <ul className="grid grid-cols-2 gap-x-10 gap-y-5">
+            {inspectHighlights.map((item) => (
+              <li key={item} className="flex items-center gap-3 text-lg">
+                <span className="text-gold">+</span>
+                {item}
+              </li>
+            ))}
           </ul>
         </Container>
       </Section>
 
       <Section>
-        <Container className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <h2 className="headline text-4xl">Included with every inspection</h2>
-            <ul className="mt-8 space-y-4">
-              {included.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-muted">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gold" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="headline text-4xl">Frequently asked questions</h2>
-            <FAQ items={faqs.slice(0, 4)} />
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="headline text-4xl">Included with every inspection</h2>
+              <div className="mt-8 grid grid-cols-2 gap-8 sm:grid-cols-4">
+                {included.map((item, index) => (
+                  <div key={item}>
+                    <Icon name={["report", "search", "shield", "check"][index]} className="h-6 w-6" />
+                    <p className="mt-3 text-sm leading-6 text-muted">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className="headline text-4xl">Frequently asked questions</h2>
+              <FAQ items={faqs.slice(0, 4)} defaultOpen={null} />
+            </div>
           </div>
         </Container>
       </Section>
 
       <CTABanner
         title="Ready to book your inspection?"
-        image="/images/homes/evening-house.jpg"
+        image="/images/mockup/cta-dusk.jpg"
+        tone="dark"
       />
     </>
   );

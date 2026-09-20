@@ -4,8 +4,14 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import { faqs } from "@/lib/content";
 
-export function FAQ({ items = faqs }: { items?: { question: string; answer: string }[] }) {
-  const [open, setOpen] = useState<number | null>(0);
+export function FAQ({
+  items = faqs,
+  defaultOpen = null,
+}: {
+  items?: { question: string; answer: string }[];
+  defaultOpen?: number | null;
+}) {
+  const [open, setOpen] = useState<number | null>(defaultOpen);
 
   return (
     <div className="divide-y divide-line">

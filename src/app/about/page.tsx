@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, Gem, RefreshCw, Shield } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import { Container, Section } from "@/components/ui/Container";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
@@ -16,7 +16,14 @@ export const metadata: Metadata = {
     "Golden Scope Inspections provides detailed home inspections for buyers, sellers, and owners across the Houston area.",
 };
 
-const icons = [Gem, RefreshCw, Shield];
+const valueIcons = ["gem", "chart", "shield"];
+const certifications = [
+  { name: "TREC", src: "/images/mockup/cert-trec.png" },
+  { name: "InterNACHI", src: "/images/mockup/cert-internachi.png" },
+  { name: "RESNET", src: "/images/mockup/cert-resnet.png" },
+  { name: "AHIT", src: "/images/mockup/cert-ahit.png" },
+  { name: "Houston Builds Together", src: "/images/mockup/cert-houston.png" },
+];
 
 export default function AboutPage() {
   return (
@@ -31,7 +38,7 @@ export default function AboutPage() {
           </>
         }
         body="Golden Scope Inspections provides detailed home inspections for homebuyers, sellers, and owners across the Houston area. We bring clarity, confidence, and peace of mind to one of life’s biggest decisions."
-        image="/images/homes/hero-entry.jpg"
+        image="/images/homes/about-hero.webp"
         imageAlt="Contemporary Houston home entry"
         aside={
           <p className="rotate-180 text-[10px] tracking-[0.28em] text-white uppercase [writing-mode:vertical-rl]">
@@ -44,10 +51,13 @@ export default function AboutPage() {
             Book an Inspection
           </Button>
           <div className="flex items-center gap-2 text-sm text-muted">
-            <Calendar className="h-4 w-4 text-gold" />
+            <Icon name="calendar" className="h-4 w-4" />
             Reports within 24 hours
           </div>
         </div>
+        <p className="mt-8 text-[11px] tracking-[0.22em] text-gold uppercase">
+          People · Knowledge · A Brighter Tomorrow
+        </p>
       </PageHero>
 
       <Section className="bg-paper">
@@ -71,16 +81,13 @@ export default function AboutPage() {
         <Container>
           <p className="eyebrow">Our values</p>
           <div className="mt-10 grid gap-10 md:grid-cols-3">
-            {values.map((value, index) => {
-              const Icon = icons[index];
-              return (
-                <div key={value.title} className="border-t border-line pt-8">
-                  <Icon className="h-6 w-6 text-gold" strokeWidth={1.25} />
-                  <h3 className="mt-5 text-2xl font-medium tracking-tight">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted">{value.body}</p>
-                </div>
-              );
-            })}
+            {values.map((value, index) => (
+              <div key={value.title}>
+                <Icon name={valueIcons[index]} className="h-6 w-6" />
+                <h3 className="mt-5 text-2xl font-medium tracking-tight">{value.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted">{value.body}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </Section>
@@ -104,13 +111,13 @@ export default function AboutPage() {
                     src={inspector.photo}
                     alt={inspector.name}
                     fill
-                    className="object-contain object-bottom p-3 transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     sizes="240px"
                   />
                 </div>
                 <h3 className="mt-5 text-lg font-medium">{inspector.name}</h3>
                 <p className="text-sm text-muted">TREC #{inspector.trec}</p>
-                <p className="text-sm text-gold">{inspector.role}</p>
+                <p className="text-sm text-muted">{inspector.role}</p>
               </Link>
             ))}
           </div>
@@ -128,10 +135,11 @@ export default function AboutPage() {
             </div>
             <p className="eyebrow text-gold">Higher standards. Brighter outcomes.</p>
           </div>
-          <div className="mt-10 grid grid-cols-2 gap-6 border-y border-line py-10 text-center sm:grid-cols-3 lg:grid-cols-5">
-            {["TREC", "InterNACHI", "RESNET", "AHIT", "Houston"].map((name) => (
-              <div key={name} className="text-sm font-semibold tracking-[0.18em] uppercase text-ink/80">
-                {name}
+          <div className="mt-10 grid grid-cols-2 items-center gap-8 border-y border-line py-10 sm:grid-cols-3 lg:grid-cols-5">
+            {certifications.map((cert) => (
+              <div key={cert.name} className="flex justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={cert.src} alt={cert.name} className="h-[76px] w-auto object-contain sm:h-[88px]" />
               </div>
             ))}
           </div>
@@ -139,9 +147,11 @@ export default function AboutPage() {
       </Section>
 
       <CTABanner
-        title="Book an inspection"
-        body="Get the clarity you need with a trusted Houston home inspection team."
-        image="/images/homes/luxury-kitchen.jpg"
+        eyebrow="Let’s move forward together"
+        title="Book an Inspection"
+        image="/images/mockup/cta-kitchen.jpg"
+        tone="light"
+        bookSide="right"
       />
     </>
   );

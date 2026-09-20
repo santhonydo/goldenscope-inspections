@@ -14,11 +14,11 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/70 bg-cream/90 backdrop-blur-md">
+    <header className="relative z-50 bg-cream">
       <Container className="flex h-[76px] items-center justify-between gap-6">
         <Logo compact />
 
-        <nav className="hidden items-center gap-5 xl:gap-7 min-[980px]:flex">
+        <nav className="hidden items-center gap-4 xl:gap-6 min-[1100px]:flex">
           {navLinks.map((link) => {
             const active =
               link.href === "/"
@@ -38,7 +38,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 min-[980px]:flex">
+        <div className="hidden items-center gap-4 min-[1100px]:flex">
           <a
             href={site.phoneHref}
             className="hidden text-[13px] tracking-wide text-ink xl:inline"
@@ -52,7 +52,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line min-[980px]:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-[4px] border border-line min-[1100px]:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
@@ -61,7 +61,7 @@ export function Header() {
       </Container>
 
       {open ? (
-        <div className="border-t border-line bg-cream min-[980px]:hidden">
+        <div className="border-t border-line bg-cream min-[1100px]:hidden">
           <Container className="flex flex-col gap-1 py-5">
             {navLinks.map((link) => (
               <Link
