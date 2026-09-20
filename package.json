@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "preview": "npx wrangler pages dev out",
+    "deploy": "npm run build && npx wrangler pages deploy out --project-name=goldenscope-inspections"
   },
   "dependencies": {
     "lucide-react": "^1.47.0",
@@ -22,6 +24,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.135.0"
   }
 }
