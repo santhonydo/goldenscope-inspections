@@ -10,9 +10,11 @@ export function Footer() {
   const pathname = usePathname();
   const isProcess = pathname.startsWith("/process");
   const isContact = pathname.startsWith("/contact");
+  const isServices = pathname.startsWith("/services");
   const isVi = pathname.includes("vi-tran");
   const isJason = pathname.includes("jason-dixon");
   const isRikki = pathname.includes("rikki-neel");
+  const isTony = pathname.includes("tony-ngo");
 
   const tagline = isProcess
     ? "Inspect. Inform. Empower."
@@ -22,7 +24,11 @@ export function Footer() {
         ? "Higher standards. Healthier homes. Brighter tomorrows."
         : isVi
           ? "Trusted home inspections for a stronger Houston."
-          : site.tagline;
+          : isServices
+            ? "Peace of mind starts at home."
+            : isTony
+              ? "Proudly serving the Greater Houston area."
+              : site.tagline;
 
   const script = isProcess
     ? "A Clearer Tomorrow Starts at Home."
@@ -47,7 +53,7 @@ export function Footer() {
         </div>
       ) : null}
 
-      <Container className="relative flex flex-col gap-10 py-14 sm:py-16 lg:flex-row lg:items-start lg:justify-between">
+      <Container className="relative flex flex-col gap-8 py-10 sm:py-12 lg:flex-row lg:items-start lg:justify-between">
         <div className="max-w-xs">
           <Logo inverted />
           <p className="mt-5 text-sm leading-6 text-white/65">{tagline}</p>

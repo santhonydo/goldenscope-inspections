@@ -115,8 +115,11 @@ export default function ProcessPage() {
             <img
               src="/images/mockup/process-dining.jpg"
               alt="Luxury kitchen and dining room ready for inspection day"
-              className="absolute inset-0 h-full w-full object-cover object-center"
+              className="absolute inset-0 h-full w-full object-cover object-left"
             />
+            <p className="absolute left-6 top-10 hidden max-w-[140px] text-[11px] leading-5 tracking-[0.18em] text-ink uppercase lg:block">
+              A more confident tomorrow begins with a clearer picture.
+            </p>
           </div>
           <div className="flex flex-col justify-center px-5 py-14 sm:px-10">
             <p className="eyebrow">What to expect</p>

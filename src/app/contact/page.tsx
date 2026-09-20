@@ -70,10 +70,10 @@ export default function ContactPage() {
             <h2 className="headline text-3xl sm:text-4xl">
               Proudly serving the Greater Houston area
             </h2>
-            <HoustonMap
-              className="mt-6 min-h-[360px]"
-              caption="Service Area — We inspect homes throughout Houston and surrounding cities."
-            />
+            <HoustonMap className="mt-6 min-h-[360px]" />
+            <p className="mt-4 text-sm text-muted">
+              Service Area — We inspect homes throughout Houston and surrounding cities.
+            </p>
           </div>
         </Container>
       </Section>

@@ -12,24 +12,37 @@ import { navLinks, site } from "@/lib/site";
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const bookFirst = pathname.startsWith("/contact") || pathname.includes("jason-dixon");
+  const showPhone = !pathname.includes("vi-tran");
 
   return (
     <header className="relative z-50 bg-cream">
-      <Container className="flex h-[76px] items-center justify-between gap-6">
-        <Logo compact />
+      <Container className="flex min-h-[76px] items-center justify-between gap-6 py-3">
+        <Logo
+          compact
+          tagline={
+            pathname.startsWith("/contact") || pathname.includes("vi-tran")
+              ? "A clearer perspective for a brighter tomorrow"
+              : undefined
+          }
+        />
 
         <nav className="hidden items-center gap-4 xl:gap-6 min-[1100px]:flex">
           {navLinks.map((link) => {
             const active =
               link.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(link.href);
+                : link.href === "/about"
+                  ? pathname.startsWith("/about") || pathname.startsWith("/inspectors")
+                  : pathname.startsWith(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[13px] tracking-wide transition-colors ${
-                  active ? "text-ink" : "text-muted hover:text-ink"
+                className={`border-b text-[13px] tracking-wide transition-colors ${
+                  active
+                    ? "border-gold text-ink"
+                    : "border-transparent text-muted hover:text-ink"
                 }`}
               >
                 {link.label}
@@ -39,15 +52,29 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 min-[1100px]:flex">
-          <a
-            href={site.phoneHref}
-            className="hidden text-[13px] tracking-wide text-ink xl:inline"
-          >
-            {site.phone}
-          </a>
-          <Button href={site.bookingUrl} external className="px-5 py-2.5">
-            Book an Inspection
-          </Button>
+          {bookFirst ? (
+            <>
+              <Button href={site.bookingUrl} external className="px-5 py-2.5">
+                Book an Inspection
+              </Button>
+              {showPhone ? (
+                <a href={site.phoneHref} className="hidden text-[13px] tracking-wide text-ink xl:inline">
+                  {site.phone}
+                </a>
+              ) : null}
+            </>
+          ) : (
+            <>
+              {showPhone ? (
+                <a href={site.phoneHref} className="hidden text-[13px] tracking-wide text-ink xl:inline">
+                  {site.phone}
+                </a>
+              ) : null}
+              <Button href={site.bookingUrl} external className="px-5 py-2.5">
+                Book an Inspection
+              </Button>
+            </>
+          )}
         </div>
 
         <button

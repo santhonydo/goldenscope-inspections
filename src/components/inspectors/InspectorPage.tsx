@@ -406,11 +406,9 @@ function ViLayout({ inspector }: { inspector: Inspector }) {
             <h2 className="headline mt-3 text-4xl sm:text-5xl">Experience that puts people first.</h2>
             <p className="mt-5 text-sm leading-7 text-muted">{inspector.bio}</p>
           </div>
-          <div className="grid gap-6">
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image src={inspector.actionImage} alt="" fill className="object-cover" sizes="50vw" />
-            </div>
-            <blockquote className="border border-line bg-white p-6">
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image src={inspector.actionImage} alt="" fill className="object-cover" sizes="50vw" />
+            <blockquote className="absolute bottom-5 left-5 right-5 border border-line bg-white/95 p-5">
               “{inspector.quote}”
               <footer className="mt-3 text-xs tracking-[0.18em] text-muted uppercase">
                 — {inspector.name}
