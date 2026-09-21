@@ -151,7 +151,7 @@ export default function ServicesPage() {
 
       <CTABanner
         title="Ready to book your inspection?"
-        image="/images/mockup/cta-dusk.jpg"
+        image="/images/hires/cta-dusk.jpg"
         tone="dark"
       />
     </>

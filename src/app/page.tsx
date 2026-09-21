@@ -144,7 +144,7 @@ export default function HomePage() {
 
       <CTABanner
         title="Book an Inspection"
-        image="/images/mockup/cta-kitchen.jpg"
+        image="/images/hires/cta-kitchen.jpg"
         tone="light"
       />
     </>

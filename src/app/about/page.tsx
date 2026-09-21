@@ -149,7 +149,7 @@ export default function AboutPage() {
       <CTABanner
         eyebrow="Let’s move forward together"
         title="Book an Inspection"
-        image="/images/mockup/cta-kitchen.jpg"
+        image="/images/hires/cta-kitchen.jpg"
         tone="light"
         bookSide="right"
       />
