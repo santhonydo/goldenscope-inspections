@@ -78,7 +78,7 @@ export function ContactForm() {
       </label>
       <button
         type="submit"
-        className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-[13px] font-medium text-white transition-colors hover:bg-gold-deep"
+        className="inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-5 py-2.5 text-[13px] font-medium text-white transition-colors hover:bg-gold-deep"
       >
         Send Message <ArrowRight className="h-3.5 w-3.5" />
       </button>

@@ -3,9 +3,10 @@ import Link from "next/link";
 type LogoProps = {
   inverted?: boolean;
   compact?: boolean;
+  tagline?: string;
 };
 
-export function Logo({ inverted = false, compact = false }: LogoProps) {
+export function Logo({ inverted = false, compact = false, tagline }: LogoProps) {
   const color = inverted ? "text-white" : "text-ink";
 
   return (
@@ -36,6 +37,11 @@ export function Logo({ inverted = false, compact = false }: LogoProps) {
         <span className="mt-1 block text-[10px] font-medium leading-none tracking-[0.28em] uppercase opacity-70">
           Inspections
         </span>
+        {tagline ? (
+          <span className="mt-2 block max-w-[170px] text-[9px] leading-3 tracking-[0.16em] uppercase opacity-55">
+            {tagline}
+          </span>
+        ) : null}
       </span>
     </Link>
   );

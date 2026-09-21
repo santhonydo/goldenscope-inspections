@@ -1,15 +1,15 @@
 export const values = [
   {
     title: "We deliver value",
-    body: "We go above and beyond for our clients, pairing quality equipment with modern report writing software — so you get meaningful insight, practical guidance, and a better overall experience.",
+    body: "We go above and beyond the checklist to provide meaningful insight, practical guidance, and a better overall experience.",
   },
   {
     title: "We embrace change",
-    body: "Our inspectors continue their education through InterNACHI and the Texas Professional Real Estate Inspectors Association, adopting new tools and improving our process to serve clients and the community better.",
+    body: "We continually learn, adopt new technologies, and improve our process to serve clients and community better.",
   },
   {
     title: "We do the right thing",
-    body: "Unlike inspectors who jump in the truck after the walkthrough, we make time to speak with each client about our findings. We lead with honesty, objectivity, and your best interests first.",
+    body: "We lead with honesty, objectivity, and respect — always putting our clients’ best interests first.",
   },
 ];
 
@@ -17,51 +17,60 @@ export const services = [
   {
     slug: "buyer-home-inspection",
     title: "Buyer Home Inspection",
-    image: "/images/homes/living-room.jpg",
+    image: "/images/pack/service-buyer.webp",
     body: "A detailed, comprehensive understanding of the home’s condition. We inspect major systems and components and deliver a digital report within 24 hours.",
   },
   {
     slug: "new-construction",
     title: "New Construction Phase Inspections",
-    image: "/images/homes/new-construction.jpg",
+    image: "/images/pack/service-new-construction.webp",
     body: "Independent inspections at pre-pour, rough-in, and final stages help you itemize repairs your builder should address before closing.",
   },
   {
     slug: "11th-month-warranty",
     title: "11th-Month Warranty Inspection",
-    image: "/images/homes/framing.jpg",
+    image: "/images/pack/service-warranty.webp",
     body: "Identify issues before your builder’s warranty expires. We document concerns so you can request repairs while coverage is still in place.",
   },
   {
     slug: "foundation",
     title: "Foundation Elevation Readings",
-    image: "/images/homes/bathroom.jpg",
+    image: "/images/pack/service-foundation.webp",
     body: "Accurate elevation readings help identify foundation movement and provide valuable insight for long-term structural health.",
   },
   {
     slug: "mold",
     title: "Mold Inspection",
-    image: "/images/homes/ceiling.jpg",
+    image: "/images/pack/service-mold.webp",
     body: "We identify visible signs of moisture and conditions that contribute to mold growth, helping you maintain a healthier home.",
   },
   {
     slug: "pre-listing",
     title: "Pre-Listing Inspection",
-    image: "/images/homes/kitchen-white.jpg",
+    image: "/images/pack/service-prelisting.webp",
     body: "A pre-listing inspection helps you find issues before buyers do — so you can list with confidence and avoid surprises during negotiations.",
   },
   {
     slug: "remodeling",
     title: "Remodeling Consultation",
-    image: "/images/homes/framing.jpg",
+    image: "/images/pack/service-remodel.webp",
     body: "Get expert insight before you remodel. We evaluate existing conditions, help you plan with confidence, and spot issues early.",
   },
   {
     slug: "sprinkler",
     title: "Sprinkler System Inspection",
-    image: "/images/homes/lawn.jpg",
+    image: "/images/pack/service-sprinkler.webp",
     body: "We inspect your irrigation system for proper function, coverage, and leaks so you can protect landscaping and avoid water waste.",
   },
+];
+
+export const inspectHighlights = [
+  "Exterior",
+  "Interior",
+  "Plumbing",
+  "Electrical",
+  "HVAC",
+  "Structure",
 ];
 
 export const inspectSystems = [
@@ -96,25 +105,25 @@ export const processSteps = [
     number: "01",
     title: "You schedule",
     body: "Book online, over the phone, or through your real estate agent. We collect a few details, send an easy-to-sign agreement, and we are good to go.",
-    image: "/images/homes/laptop.jpg",
+    image: "/images/pack/process-schedule.webp",
   },
   {
     number: "02",
     title: "We inspect",
     body: "We arrive early and begin a detailed visual inspection that typically takes two and a half to three hours, covering structural, mechanical, plumbing, and electrical systems.",
-    image: "/images/homes/inspector-clipboard.jpg",
+    image: "/images/pack/process-inspect.webp",
   },
   {
     number: "03",
     title: "We report",
     body: "You receive a clear digital report within 24 hours — photos, comments on deficiencies, recommendations, and a summary of repair items to address.",
-    image: "/images/homes/report-devices.jpg",
+    image: "/images/pack/process-report.webp",
   },
   {
     number: "04",
     title: "You decide",
     body: "The decision to purchase is yours. We provide accurate, relevant information about the property and its defects so you can plan for repair costs with confidence.",
-    image: "/images/homes/couple.jpg",
+    image: "/images/pack/process-decide.webp",
   },
 ];
 
@@ -160,5 +169,29 @@ export const faqs = [
     question: "What languages do you speak?",
     answer:
       "We speak Vietnamese, Cantonese, and Spanish in addition to English — so more families can get clear communication and a better experience.",
+  },
+];
+
+export const contactFaqs = [
+  {
+    question: "How soon will I get my report?",
+    answer: "Reports are delivered within 24 hours of the inspection.",
+    icon: "report",
+  },
+  {
+    question: "Do I need to be present for the inspection?",
+    answer: "You’re welcome to attend, but it is not required.",
+    icon: "home",
+  },
+  {
+    question: "What areas do you serve?",
+    answer:
+      "We serve the greater Houston area, including Katy, The Woodlands, Sugar Land, Pearland, Baytown, and surrounding communities.",
+    icon: "location",
+  },
+  {
+    question: "What languages do you speak?",
+    answer: "We speak Vietnamese, Cantonese, and Spanish in addition to English.",
+    icon: "mail",
   },
 ];

@@ -26,7 +26,7 @@ export default function ServiceAreasPage() {
           </>
         }
         body="From The Woodlands to Pearland and Katy to Baytown, we inspect homes throughout Greater Houston. If you are nearby and not sure we cover you, call us — we probably do."
-        image="/images/homes/stone-house.jpg"
+        image="/images/homes/process-hero.webp"
         imageAlt="Houston-area home"
       >
         <Button href={site.bookingUrl} external arrow>
