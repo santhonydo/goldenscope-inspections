@@ -4,6 +4,9 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { site } from "@/lib/site";
 import "./globals.css";
+import "./house-scan.css";
+import "./shell.css";
+import "./subpages.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
