@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowDown, ArrowLeft, ArrowRight, ChevronRight, FileText, Home, MapPin, ShieldCheck, Users } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowRight, ChevronRight, FileText, Home, MapPin, Play, ShieldCheck, Users } from 'lucide-react';
 import { rooms, roomImage } from '@/lib/rooms';
 import { inspectors } from '@/lib/inspectors';
 import { services } from '@/lib/content';
@@ -15,6 +15,9 @@ const systems = [
   {name:'HVAC', room:'attic', x:67, y:17, detail:'Heating, cooling and airflow'},
   {name:'Foundation', room:'exterior', x:82, y:74, detail:'Visible slab, movement and site grading'},
 ];
+
+// Replace VIDEO_ID when the final Golden Scope introduction is published.
+const introVideoUrl='https://www.youtube.com/watch?v=VIDEO_ID';
 
 export function RoomExplorer({initial='kitchen', standalone=false}:{initial?:string; standalone?:boolean}) {
   const [slug,setSlug]=useState(initial);
@@ -80,6 +83,7 @@ export function HouseScan(){
   return <div className="house-scan"><nav className="hs-rail" aria-label="Explore this page"><a href="#scan"><Home/>Scan</a><a href="#rooms"><MapPin/>Rooms</a><a href="#report"><FileText/>Report</a><a href="#team"><Users/>Team</a></nav>
     <section className="hs-hero" id="scan"><div className="hs-hero-copy"><p className="hs-eyebrow">HOUSTON HOMES. CLEARER ANSWERS.</p><h1>See the<br/><em>whole house.</em></h1><p>Look beyond the first impression. Get a clear understanding of your home, from roof to foundation.</p><div className="hs-hero-actions"><button className="hs-primary" onClick={()=>explore('kitchen')}>Explore the inspection <ArrowDown size={16}/></button><Link href="/book">Book an inspection <ArrowRight size={16}/></Link></div><div className="hs-trust"><span>◈ Texas licensed inspectors</span><span>◈ Digital reports within 24 hours</span></div></div><div className="hs-stage" onKeyDown={e=>{if(e.key==='Escape')setSystem(null);}}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/house-scan/hero-house-slab.webp" alt="Architectural cutaway of a Houston house with attic systems and a slab-on-grade foundation" width="1672" height="941" />{systems.map(s=><div className="hs-system" key={s.name} style={{left:`${s.x}%`,top:`${s.y}%`}}><button aria-expanded={system===s.name} onClick={()=>setSystem(system===s.name?null:s.name)}><span>●</span>{s.name}</button>{system===s.name&&<div className="hs-system-card"><strong>{s.name}</strong><p>{s.detail}</p><button onClick={()=>{setSystem(null);explore(s.room);}}>Explore this area <ArrowRight size={14}/></button></div>}</div>)}<span className="hs-stage-note">A little more insight. A lot more confidence.</span></div></section>
     <div className="hs-proof"><span>Independent inspections.</span><span>Real people. Clear guidance.</span><span>Proudly serving Greater Houston.</span></div>
+    <section className="hs-intro-video" id="intro-video"><div className="hs-video-copy"><p className="hs-eyebrow">MEET GOLDEN SCOPE</p><h2>What a clearer inspection<br/><em>looks like.</em></h2><p>Meet the team, see how we inspect a home, and learn what you can expect from scheduling through your final report.</p><a href={introVideoUrl} target="_blank" rel="noreferrer">Watch our introduction <ArrowRight size={16}/></a></div><a className="hs-video-card" href={introVideoUrl} target="_blank" rel="noreferrer" aria-label="Watch the Golden Scope company introduction on YouTube"><span className="hs-video-kicker">GOLDEN SCOPE INSPECTIONS</span><span className="hs-video-play"><Play size={25} fill="currentColor"/></span><span className="hs-video-caption"><strong>Company introduction</strong><small>Watch on YouTube · Video placeholder</small></span></a></section>
     <RoomExplorer/><ReportPreview/>
     <section className="hs-section" id="services"><div className="hs-section-head"><div><p className="hs-eyebrow">FOR EVERY CHAPTER OF HOME</p><h2>The right inspection<br/>for your next move.</h2></div><Link href="/services">All services <ArrowRight size={16}/></Link></div><div className="hs-cards">{services.slice(0,3).map((s,i)=><Link href={`/services/${s.slug}`} key={s.slug}><small>{String(i+1).padStart(2,'0')}</small><h3>{s.title}</h3><p>{s.body}</p><ArrowRight size={18}/></Link>)}</div></section>
     <section className="hs-section hs-team" id="team"><div className="hs-section-head"><div><p className="hs-eyebrow">REAL PEOPLE. LOCAL KNOWLEDGE.</p><h2>The people behind<br/><em>every insight.</em></h2></div><div className="hs-arrows"><button aria-label="Previous inspectors" onClick={()=>moveTeam(-1)}><ArrowLeft/></button><button aria-label="Next inspectors" onClick={()=>moveTeam(1)}><ArrowRight/></button></div></div><div className="hs-team-rail" ref={teamRail}>{inspectors.map(p=><Link href={`/inspectors/${p.slug}`} key={p.slug} className="hs-team-card">{/* eslint-disable-next-line @next/next/no-img-element */}<img src={`/images/house-scan/team-${p.firstName.toLowerCase()}.webp`} alt={p.name} width="408" height="612"/><h3>{p.name} <ArrowRight size={16}/></h3><p>{p.role}</p><small>TREC #{p.trec}</small></Link>)}</div></section>
