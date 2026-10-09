@@ -8,7 +8,7 @@ export const site = {
   hours: "Mon – Sun 6:00 AM – 7:00 PM",
   city: "Houston, TX",
   address: "Greater Houston, Texas",
-  languages: ["Vietnamese", "Cantonese", "Spanish"],
+  languages: ["English", "Vietnamese", "Cantonese", "Spanish"],
   bookingUrl:
     "https://app.spectora.com/home-inspectors/my-inspection-company-9174f46337/schedule",
   trecNoticeUrl: "https://www.trec.texas.gov/forms/consumer-protection-notice",

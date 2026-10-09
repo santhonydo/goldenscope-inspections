@@ -408,12 +408,12 @@ function ViLayout({ inspector }: { inspector: Inspector }) {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image src={inspector.actionImage} alt="" fill className="object-cover" sizes="50vw" />
-            <blockquote className="absolute bottom-5 left-5 right-5 border border-line bg-white/95 p-5">
-              “{inspector.quote}”
-              <footer className="mt-3 text-xs tracking-[0.18em] text-muted uppercase">
-                — {inspector.name}
-              </footer>
-            </blockquote>
+            <div className="absolute bottom-5 left-5 right-5 border border-line bg-white/95 p-5">
+              <p className="eyebrow">Manager & licensed inspector</p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Residential and commercial inspection support in English, Vietnamese, Cantonese, and Spanish.
+              </p>
+            </div>
           </div>
         </Container>
       </Section>
@@ -436,12 +436,14 @@ function ViLayout({ inspector }: { inspector: Inspector }) {
             <p className="eyebrow">Inspection philosophy</p>
             <h2 className="headline mt-3 text-4xl">{inspector.philosophyTitle}</h2>
             <p className="mt-5 text-sm leading-7 text-muted">{inspector.philosophy}</p>
-            <blockquote className="mt-6 text-lg leading-8">
-              “{inspector.quote}”
-              <footer className="mt-3 text-xs tracking-[0.18em] text-muted uppercase">
-                — {inspector.name}
-              </footer>
-            </blockquote>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {inspector.credentials.map((item) => (
+                <li key={item.label} className="flex items-start gap-3 text-sm leading-6">
+                  <Icon name={item.icon} className="mt-1 h-4 w-4 shrink-0" />
+                  {item.label}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </Section>
