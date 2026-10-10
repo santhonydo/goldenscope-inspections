@@ -5,13 +5,15 @@ import { Container, Section } from "@/components/ui/Container";
 import { HoustonMap } from "@/components/shared/HoustonMap";
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABanner } from "@/components/shared/CTABanner";
+import { pageMetadata } from "@/lib/seo";
 import { cities, site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Service Area",
   description:
-    "Golden Scope Inspections serves the entire Greater Houston area and beyond — Katy, The Woodlands, Sugar Land, Pearland, Baytown, and surrounding communities.",
-};
+    "Golden Scope Inspections serves Greater Houston, including Katy, The Woodlands, Sugar Land, Pearland, Cypress, Spring, and Baytown.",
+  path: "/service-areas",
+});
 
 export default function ServiceAreasPage() {
   return (
