@@ -8,13 +8,16 @@ import { CTABanner } from "@/components/shared/CTABanner";
 import { PageHero } from "@/components/shared/PageHero";
 import { values } from "@/lib/content";
 import { inspectors } from "@/lib/inspectors";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
-    "Golden Scope Inspections provides detailed home inspections for buyers, sellers, and owners across the Houston area.",
-};
+    "Meet Golden Scope Inspections, a Houston home inspection team serving buyers, sellers, and owners across Greater Houston.",
+  path: "/about",
+  image: "/images/homes/about-hero.webp",
+});
 
 const valueIcons = ["gem", "chart", "shield"];
 const certifications = [

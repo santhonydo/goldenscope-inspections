@@ -4,13 +4,15 @@ import { Button } from "@/components/ui/Button";
 import { Container, Section } from "@/components/ui/Container";
 import { FAQ } from "@/components/shared/FAQ";
 import { inspectSystems } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Resources",
   description:
-    "Frequently asked questions, inspection checklist, and TREC consumer resources from Golden Scope Inspections.",
-};
+    "Houston home inspection FAQs, a systems checklist, and the TREC consumer protection notice from Golden Scope Inspections.",
+  path: "/resources",
+});
 
 export default function ResourcesPage() {
   return (
@@ -63,6 +65,10 @@ export default function ResourcesPage() {
               Prefer to talk first?{" "}
               <Link href="/contact" className="underline">
                 Contact the team
+              </Link>
+              . For longer guides, visit the{" "}
+              <Link href="/blog" className="underline">
+                blog
               </Link>
               .
             </p>
