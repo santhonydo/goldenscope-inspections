@@ -8,13 +8,16 @@ import { CTABanner } from "@/components/shared/CTABanner";
 import { FAQ } from "@/components/shared/FAQ";
 import { PageHero } from "@/components/shared/PageHero";
 import { faqs, included, inspectHighlights, services } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Services",
   description:
-    "Buyer inspections, new construction phase inspections, warranty inspections, foundation readings, mold, pre-listing, and more across Houston.",
-};
+    "Houston home inspection services: buyer inspections, new construction phases, 11th-month warranties, foundation readings, mold, and pre-listing.",
+  path: "/services",
+  image: "/images/homes/services-hero.webp",
+});
 
 export default function ServicesPage() {
   return (

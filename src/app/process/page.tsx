@@ -6,13 +6,16 @@ import { Container, Section } from "@/components/ui/Container";
 import { FAQ } from "@/components/shared/FAQ";
 import { PageHero } from "@/components/shared/PageHero";
 import { faqs, processSteps } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Our Process",
   description:
-    "From scheduling to clarity — a simple, transparent inspection process designed to give you confidence in your next move.",
-};
+    "How a Golden Scope home inspection works, from scheduling in Houston to a digital report within 24 hours.",
+  path: "/process",
+  image: "/images/homes/process-hero.webp",
+});
 
 const expectations = [
   "Plan for approximately 2.5–3 hours on site",

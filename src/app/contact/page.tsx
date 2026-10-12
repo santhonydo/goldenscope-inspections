@@ -6,13 +6,16 @@ import { Icon } from "@/components/ui/Icon";
 import { Container, Section } from "@/components/ui/Container";
 import { PageHero } from "@/components/shared/PageHero";
 import { contactFaqs } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description:
-    "Questions are welcome. Reach Golden Scope Inspections by phone, email, or our contact form.",
-};
+    "Contact Golden Scope Inspections in Houston by phone, email, or the contact form. Reports within 24 hours.",
+  path: "/contact",
+  image: "/images/homes/contact-hero.webp",
+});
 
 export default function ContactPage() {
   return (

@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/Container";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Terms of Service" };
+export const metadata: Metadata = pageMetadata({
+  title: "Terms of Service",
+  description:
+    "Terms for Golden Scope Inspections: TREC standards of practice, the inspection agreement, and what a report covers.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

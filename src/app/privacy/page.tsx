@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/Container";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Privacy Policy" };
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy",
+  description:
+    "How Golden Scope Inspections uses contact and booking information, and how to ask a privacy question.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (
