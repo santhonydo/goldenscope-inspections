@@ -103,6 +103,13 @@ export default async function BlogPostPage({
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
+                  {section.points ? (
+                    <ul className="list-disc space-y-2 pl-5">
+                      {section.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
               </section>
             ))}
