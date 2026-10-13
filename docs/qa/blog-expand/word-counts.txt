@@ -1,0 +1,10 @@
+Body word counts for src/lib/blog.ts
+Counted from section paragraphs only. Headings, titles, descriptions, and the booking CTA are excluded.
+Words are whitespace-separated tokens.
+Target range: 1200-1500.
+
+houston-buyer-home-inspection-checklist	1443
+houston-foundation-elevation-readings	1470
+eleventh-month-warranty-inspection	1492
+pre-listing-inspection-for-houston-sellers	1496
+how-to-prepare-for-inspection-day	1486
